@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{CJKutf8}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{enumerate}
+
+\geometry{a4paper} 
+
+\begin{document}
+\begin{CJK}{UTF8}{gkai}
+
+\title{数学归纳法}
+\date{}
+\author{张舒悦}
+\maketitle
+
+\section{教学目标}
+\begin{enumerate}
+\item 知道数学归纳法的基本原理.
+\item 理解数学归纳法证题的两个步骤．
+\item 初步应用数学归纳法证明一些简单的与正整数有关的恒等式.
+\end{enumerate}
+
+\section{教学重点}
+\begin{itemize}
+\item 初步应用数学归纳法证明一些简单的与正整数有关的恒等式.
+\end{itemize}
+
+\section{教学难点}
+\begin{itemize}
+\item  理解数学归纳法证题的两个步骤.
+\end{itemize}
+
+\section{教学过程}
+\subsection{引入}
+\subsubsection{生活实例}
+你有一列很长的直立着的多米诺骨牌，如果你可以：
+\begin{enumerate}[i]
+\item 第一张骨牌会倒.
+\item 只要任意一张骨牌倒了，那么与其相邻的下一张骨牌也会倒.
+\end{enumerate}
+%提问全班学生是否所有的骨牌都会倒.
+那么便可以下结论：所有的骨牌都会倒.
+\\[2ex]其它生活实例: 早操列队对齐站在正确的位置上.
+
+\subsubsection{类比解决数学问题}
+类比多米诺骨牌过程, \\例题1: 数列${a_n}$是等差数列, $a_1 = 1$, $d=3$, 证明其通项公式为$a_n = 1 + 3(n-1).\hspace{3mm}(n \in \mathbb{N}^*)$ 
+%说明在不知道等差数列通项公式的情况下, 要验证通过找规律得出的猜想.
+\\证明: 
+\begin{enumerate}[i]
+\item 当$n = 1$时, 左边$= a_1 = 1$, 右边$= 1 + 3 \times (1-1) = 1$.\\左边 = 右边, 等式成立.
+%引导回忆起递推公式.
+\item 假设当$n = k (k \in \mathbb{N}^*, k \ge 1)$时, 等式成立, 即$a_k = 1 + 3(k-1).$\\那么当$n = k + 1$时, $a_{k+1} = a_k + 3 = 1 + 3(k-1) + 3 = 1 +3[(k + 1) - 1], $等式也成立.
+%k的范围需和同学一起探讨完成.
+%靠近结论, 强调下标的对应.
+\end{enumerate}
+$\therefore$根据1, 2可以断定, 通项公式$a_n = 1 + 3(n-1)$对任何$n \in \mathbb{N}^*$都成立.
+%强调书写结论
+
+\subsubsection{定义}
+这是数学家通过对正整数的深入研究, 找到的一种证明与正整数$n$有关的数学命题的简单有效的方法, 其关键步骤如下：
+\begin{enumerate}[i]
+\item 证明当$n$取第一个值$n_0$时结论正确；
+\item 假设当$n = k (k \in \mathbb{N}^*, k \geq n_0)$ 时结论正确, 证明当$n = k + 1$时结论也正确．
+\end{enumerate}
+完成这两个步骤后, 就可以断定命题对从$n_0$开始的所有正整数$n$成立.\\这种证明方法叫做数学归纳法(mathematical induction)．
+%N0的范围需强调.
+%回顾例题1, 点明其中N0即1.
+
+\subsection{两个步骤的必要性}
+\subsubsection{第一步的必要性}
+反例1: 对于例题1中将$a_1 = 1$改成$a_1 = 2.$
+%例题1的变式.
+\subsubsection{第二步的必要性}
+%利用数学史.
+反例2: 法国大数学家费尔马发现$2^{2^n} + 1$当$n=0, n=1, n=2, n=3, n=4$的时候, 它的值分别等于3, 5, 17, 257, 65537, 这5个数都是素数. 他据此猜想$2^{2^n} + 1(n \in \mathbb{N}^*)$的值都是素数.\\
+请同学用计算器计算$n = 5$时的值, 并将该值除以641($2^{2^5} = 641 \times 6700417$).
+\\[2ex]数学归纳法证明的命题的这两个步骤是缺一不可的.
+
+\subsection{简单应用}
+例题2: 用数学归纳法证明
+$$1^2 + 2^2 + 3^2 + \cdots + n^2 = \frac{n(n + 1)(2n + 1)}{6}.\hspace{3mm}(n \in \mathbb{N}^*)$$
+\\证明: 
+\begin{enumerate}[i]
+\item 当$n = 1$时, 左边$= 1^2 = 1$, 右边$= \frac{1 \times (1 + 1) \times (2 \times + 1)}{6} = 1$.\\左边 = 右边, 等式成立.
+\item 假设当$n = k (k \in \mathbb{N}^*, k \ge 1)$时, 等式成立, 即$1^2 + 2^2 + 3^2 + \cdots + k^2 = \frac{k(k + 1)(2k + 1)}{6}.$
+\\当$n = k + 1$时, \\$1^2 + 2^2 + 3^2 + \cdots + k^2 + (k + 1)^2\\= \frac{k(k + 1)(2k + 1)}{6} + (k+1)^2\\= \frac{(k + 1)(2k^2 + k + 6k +6)}{6}\\= \frac{(k + 1)(k + 2)(2k + 3)}{6}\\= \frac{(k + 1)[(k + 1) + 1][2(k + 1) + 1]}{6}$, \\等式也成立.
+%k的范围这里需要给学生停顿思考的时间.
+%第二步时, 要引导学生往结论去靠近. 可先将结论写在旁边形成对比. 最后化简时注意字母的对应.
+\end{enumerate}
+$\therefore$根据1, 2可以断定, $1^2 + 2^2 + 3^2 + \cdots + n^2 = \frac{n(n + 1)(2n + 1)}{6}$对任何$n \in \mathbb{N}^*$都成立.
+
+\subsection{小结}
+\begin{itemize}
+\item 适用范围: 证明某些与正整数$n$有关的论断的正确性.
+\item 已知条件与步骤:
+\begin{itemize}
+\item 递推的起点: 初始条件 + 猜想.
+\item 递推的依据: 递推关系 + 猜想.
+\end{itemize}
+\end{itemize}
+
+\subsection{思考题}
+\begin{itemize}
+\item[-] 数学归纳法的变形1: 只针对偶自然数或只针对奇自然数.
+\item[-] 数学归纳法的变形2: 只针对满足某些条件的自然数.
+\end{itemize}
+
+\subsection{作业}
+\begin{itemize}
+%简单题目用来练习证明步骤; 重要结论需牢记.
+\item 用数学归纳法证明
+$$1 + 3 + 5 + \cdots + (2n-1) = n^2.\hspace{3mm}(n \in \mathbb{N}^*)$$
+\item (选做)$$S_n = 1 \times 2 + 2 \times 3 + 3 \times 4 + \cdots + n(n+1). \hspace{3mm}(n \in \mathbb{N}^*)$$
+$S_1 =  2 = \frac{1}{3} \times 1 \times 2 \times 3,$ \hspace{6mm} $S_2 =  8 = \frac{1}{3} \times 2 \times 3 \times 4,$  \hspace{6mm} $S_3 =  20 = \frac{1}{3} \times 3 \times 4 \times 5,$\\
+$S_4 =  40 = \frac{1}{3} \times 4 \times 5 \times 6,$ \hspace{6mm}$S_5 =  70 = \frac{1}{3} \times 5 \times 6 \times 7.$
+\begin{enumerate}
+\item 猜想$S_n$,
+\item 求$f(k) = S_{k+1} - S_k$,
+\item 用数学归纳法证明你的猜想.
+\end{enumerate}
+\end{itemize}
+
+\end{CJK}
+\end{document}

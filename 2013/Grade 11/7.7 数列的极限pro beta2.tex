@@ -1,0 +1,167 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{CJKutf8}
+\usepackage{amssymb}
+\usepackage{geometry}
+\usepackage{enumerate}
+\usepackage{multicol} 
+
+
+
+\geometry{a4paper} 
+
+\begin{document}
+\begin{CJK}{UTF8}{gkai}
+
+\title{数列的极限}
+\date{}
+\author{张舒悦}
+\maketitle
+
+\section{教学目标}
+\begin{enumerate}
+\item 从数列的变化趋势理解数列极限的概念.
+\item 判断一些简单数列的极限.
+\end{enumerate}
+
+\section{教学重点}
+\begin{enumerate}
+\item 数列极限的存在性.
+\item 数列极限的趋近方式.
+\item 数列极限与数列的项的关系.
+\end{enumerate}
+
+\section{教学难点}
+\begin{enumerate}
+\item 从数列的变化趋势理解数列极限的概念.
+\end{enumerate}
+
+\section{教学过程}
+
+\subsection{引入}
+\subsubsection{数学史: 关于$\pi$}
+我国古代三国时期的数学家刘徽从圆内接正六边形起算, 令边数一倍一倍地增加, 即\\$12, 24, 48, 96, \cdots, 1536, \cdots$, 因而逐个算出正六边形, 正十二边形, 正二十四边形, $\cdots$的周长. 这些多边形的周长逐个得接近圆周. 把圆周分割得细, 误差就越少, 其内接正多边形的周长就越接近圆周. 如此不断地分割下去, 一直到圆周无法再分割为止, 也就是到了圆内接正多边形的边数无限多的时候, 它的周长就与圆周完全一致了。\\
+刘徽在这其中运用了极限的思想, 践行了逐步逼近的想法.\\
+
+\subsubsection{计算}
+数列$\{a_n\}$, $a_n = \frac{1}{n}$, 完成以下表格(保留三位小数). \\
+\begin{tabular}{| c || c | c | c | c | c | c | c | c | c | c | c | c |}
+  $n$     & 1 & 2 & 3 & 4 & 5 & 6 & $\cdots$ & 1000 & $\cdots$ & $10^4$ & $\cdots$\\
+  $a_n$ &&&&&&&&&&&$\cdots$\\  
+\end{tabular}\\
+完成后的表格: \\
+\begin{tabular}{| c || c | c | c | c | c | c | c | c | c | c | c | c |}
+  $n$     & 1 & 2 & 3 & 4 & 5 & 6 & $\cdots$ & 1000 & $\cdots$ & $10^4$ & $\cdots$\\
+  $a_n$ & 1 & 0.5 & 0.333 & 0.25 & 0.2 & 0.167 & $\cdots$ & 0.001 & $\cdots$ & 0.000 & $\cdots$\\  
+\end{tabular}\\
+*板书作出$f(n)$关于n的图像.\\
+*提问: 图像变化趋势是怎么样的?\\
+*提问: 我们将形的特征转换到数的趋势. 对于数列$\{a_n\}$来说, 它的变化趋势是怎样的?\\
+随着项数$n$无限增大, $a_n$和定常数0的距离要多小有多小. 增补表格为: \\
+\begin{tabular}{| c || c | c | c | c | c | c | c | c | c | c | c | c |}
+  $n$     & 1 & 2 & 3 & 4 & 5 & 6 & $\cdots$ & 1000 & $\cdots$ & $10^4$ & $\cdots$\\
+  $a_n$ & 1 & 0.5 & 0.333 & 0.25 & 0.2 & 0.167 & $\cdots$ & 0.001 & $\cdots$ & 0.000 & $\cdots$\\  
+  $| a_n - 0 |$ &&&&&&&&&&&$\cdots$
+\end{tabular}\\
+随着$n$无限增大, $a_n$和定常数0的距离趋近于0. 这也就是说, 随着$n$无限增大, $a_n$无限趋近于定常数0.\\
+\newline根据数列的这个关于变化趋势的特点, 我们给出数列极限的定义.\\
+
+\subsection{定义}
+一般地, 在$n$无限增大的变化过程中, 如果无穷数列$\{a_n\}$中的$a_n$无限趋近于一个常数A,  那么A叫做数列${a_n}$的极限, 或叫做数列$\{a_n\}$收敛于A, 记作$$\lim_{n \to \infty}{a_n} = A,$$
+读作``$n$趋于无穷大时, $a_n$的极限等于A."\\
+解释$\lim$的意思, 并且说明只有极限存在时才能书写此符号.\\
+*板书$\lim_{n \to \infty}{\frac{1}{n}} = 0$, 说出读法, 解释含义.\\
+
+\subsubsection{概念辨析}
+*无穷*数列.\\
+判断题: 数列$\underbrace{5, 5, 5, \cdots, 5}_{100000}$的极限是5.\\
+有限数列无$n$无限增大的变化过程, 因为无法谈及其相关的变化趋势. 极限定义的大前提是无穷数列.\\
+\newline$a_n$并不是指数列中的任何一项, 而是表示某一项开始后的的任何一项.$a_n$中的$n$是与``$n$无限增大的变化过程"中的$n$是相互对应的.\\
+*板书$\lim_{n \to \infty}{a_n} =  \lim_{n \to \infty}{a_(n+1) } = \lim_{n \to \infty}{a_(n+2)} = A,$\\
+\newline$a_n$*无限趋近*于A.\\
+辨析题:  能否将定义中的``无限趋近"改为``越来越接近"?\\
+反例: $a_n = \frac{1}{n}$越来越接近-1. 极限定义中无限趋近常数A的意思是与A的距离要多小有多小.\\
+``无限趋近"一定``越来越接近", 而``越来越接近"不一定``无限趋近". ``无限趋近"是``越来越接近"的真子集.\\
+\newline*一个*常数A表明常数A是唯一的.\\
+趋近方式是唯一的, 趋近方式确定了这个常数. 之后的课程中用极限运算法则来证明.\\
+\newline*提问: 是否每一个无穷数列都有极限?\\
+
+\subsection{极限的存在性}
+\subsubsection{$a_n = n^2$}
+$a_n$随着$n$的无限增大也无限增大, 不可能无限趋近于一个常数.\\
+\subsubsection{$a_n = (-1)^n$}
+$a_n$随着$n$的无限增大在1与-1之间摆动, 不可能趋近于一个唯一的常数.\\
+\newline
+因而面对一个无穷数列, 首先应该判断其是否有极限.
+
+\subsection{趋近于数列极限的基本方式}
+判断以下数列极限是否存在, 并说明理由.\\
+\textcircled{1} $a_n = (\frac{1}{2})^n.$\\
+作图, 点始终在$a_n = 0$的上方; 随着n的无限增大, $a_n$与0的距离要多小有多小.\\
+单调递减无限趋近于0, 极限存在, $\lim_{n \to \infty}{a_n} = 0.$\\
+\newline
+\textcircled{2} $a_n = -(\frac{1}{2})^n.$\\
+作图, 点始终在$a_n = 0$的下方; 随着n的无限增大, $a_n$与0的距离要多小有多小.\\
+单调递增无限趋近于0, 极限存在, $\lim_{n \to \infty}{a_n} = 0.$\\
+\newline
+\textcircled{3} $a_n = (-\frac{1}{2})^n.$\\
+作图, 点在$a_n = 0$的上下两侧跳跃; 随着n的无限增大, $a_n$与0的距离要多小有多小.\\
+跳跃无限趋近于0, 极限存在, $\lim_{n \to \infty}{a_n} = 0.$\\
+\newline
+\textcircled{1}\textcircled{2}单侧趋近, \textcircled{3}异侧趋近.\\
+\newline
+\textcircled{4} $a_n = \frac{1}{2}.$\\
+作图, 点始终在$a_n =  \frac{1}{2}$上;随着n的无限增大, $a_n$与$\frac{1}{2}$的距离始终为0 .\\
+常值趋近于$\frac{1}{2}$, 极限存在, $\lim_{n \to \infty}{a_n} = \frac{1}{2}.$\\
+\newline*提问: 数列极限是否可以等于数列的项?\\
+\textcircled{5} $a_n = q^n.$\\
+*提问: 介于以上几个特例可以看出, 这个极限有些情况存在, 有些情况不存在. 那么我们该如何做?\\
+*提问: 分类讨论, 对什么讨论? 如何讨论?\\
+*讨论: 两人一组互相讨论出分类依据.\\
+当$q > 1$时, 随着n的无限增大, $a_n$正向无限增大, 不可能无限趋近于一个常数.\\
+当$q < -1$时, 随着n的无限增大, $a_n$跳跃向正负向无限增大, 不可能无限趋近于一个常数.\\
+\newline
+综上所述, 当$|q| > 1$或$q = -1$时, 极限不存在; 否则 \\
+\begin{displaymath}
+\lim_{n \to \infty}{q^n} = \left\{ \begin{array}{ll}
+ 0 & \textrm{if $|q| < 1$}\\
+ 1 & \textrm{if $q = 1$}\hspace{3mm}.\\
+  \end{array} \right.
+\end{displaymath}
+
+\subsection{数列的项与极限的关系}
+判断以下数列极限是否存在, 并说明理由.\\
+\begin{displaymath}
+a_n = \left\{ \begin{array}{ll}
+ 2^n & \textrm{if $1 \le n \le 10^6$}\\
+ 1 & \textrm{if $n > 10^6$}\hspace{3mm}.\\
+  \end{array} \right.
+\end{displaymath}
+*讨论: 极限是否存在, 并说明理由.\\
+*预案: 两个极限; 极限不存在.\\
+极限与数列的项中前有限项无关, 而与有限项之后的无穷项的变化趋势有关.\\
+
+\subsection{小结}
+\begin{itemize}
+\item 数列定义: 无穷+无限趋近+定常数.
+\item 数列极限不一定存在.
+\item 趋近于数列极限的基本方式有单侧, 异侧和常值.
+\item 极限与数列的项中前有限项无关, 而与有限项之后的无穷项的*变化趋势*有关.
+\end{itemize}
+
+\subsection{作业}
+\begin{enumerate}
+\item 判断以下数列极限是否存在, 并说明理由.\\1, 0, 1, 0, $\cdots$, $\frac{1}{2}[1+(-1)^{n-1}]$, $\cdots.$
+\item 判断以下数列极限是否存在, 并说明理由.\\
+\begin{displaymath}
+a_n = \left\{ \begin{array}{ll}
+ 2 & \textrm{if $1 \le n \le 10^{100}$}\\
+ \frac{1}{n} & \textrm{if $n > 10^{100}$}\hspace{2mm}.\\
+  \end{array} \right.
+\end{displaymath} 
+\item 满足条件: ``对任意$n \in \mathbb{N}^*$, 都有$a_n < 1$且$ \lim_{n \to \infty}{a_n} = 1."$的无穷数列是否存在? 若存在, 请举例.
+\end{enumerate}
+
+\end{CJK}
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{CJKutf8}
+\usepackage{amssymb}
+
+\begin{document}
+\begin{CJK}{UTF8}{gkai}
+
+\title{定义域关于原点对称的函数}
+\date{}
+\author{}
+\maketitle
+
+\section{先扯扯呗}
+
+第一次接触到如下命题: \begin{quote} 
+函数$f(x)$的定义域关于原点对称, 则函数$f(x)$能被唯一分解成一奇函数$g(x)$与一偶函数$h(x)$的和.
+\end{quote}应该是在高中的习题, 当时就是形式化地写了类下述的证明. 
+
+\section{证明}
+$g(x)$是奇函数, 因而
+\begin{equation}\label{eq1}g(x) = -g(-x)\end{equation}
+$h(x)$是偶函数, 因而
+\begin{equation}\label{eq2}h(x) = h(-x)\end{equation}
+根据题意,
+\begin{equation}\label{eq3}f(x) = g(x) + h(x)\end{equation}
+将\eqref{eq3}中$x$替换为$-x$, 得
+\begin{equation}\label{eq4}f(-x) = g(-x) + h(-x)\end{equation}
+将\eqref{eq1}, \eqref{eq2}代入\eqref{eq4}, 得
+\begin{equation}\label{eq5}f(-x) = -g(x) + h(x)\end{equation}
+将\eqref{eq3}, \eqref{eq5}联立组成关于$g(x)$, $h(x)$的二元方程方程组, 
+
+\begin{equation}
+\begin{cases}
+f(x) = g(x) + h(x)\\
+f(-x) = -g(x) + h(x)
+\end{cases}
+\end{equation}
+
+解得,
+\begin{equation}
+\begin{cases}\label{eq7}
+g(x) = \frac{f(x) - f(-x)}{2}\\
+h(x) = \frac{f(x) + f(-x)}{2}\end{cases}
+\end{equation}
+至于唯一性, 表达式只有这一种方式自然就说明分解形式唯一. 如果不放心, 可以搞个反证法, 来双保险一下. 不过我高中老师说, 他听到"双保险"会想笑, 有些人看到一元二次方程二次项和常数项系数符号相反, 还要用$\Delta$检验双保险一下.
+\section{感谢你听我扯到这里}
+通过上述证明, 我们能够看到任何一个定义域关于原点对称的函数$f(x)$都能被唯一分解成一奇函数$g(x)$与一偶函数$h(x)$的和. 不妨称$g(x)$, $h(x)$为$f(x)$的奇部, 偶部.\\
+我们来举几个特殊函数, 计算下它们的奇偶部. 
+\subsection{一次函数$$y = ax + b(a,b \in \mathbb{R}; a \not = 0)$$}
+\begin{equation}
+\begin{cases}
+g(x) = ax\\
+h(x) = b
+\end{cases}
+\end{equation}
+
+\subsection{二次函数$$y = ax^2 + bx + c (a, b ,c \in \mathbb{R}; a, b \not = 0)$$}
+\begin{equation}
+\begin{cases}
+g(x) = bx\\
+h(x) = ax^2 +  c
+\end{cases}
+\end{equation}
+
+\subsection{一般多项式函数$$y = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x + a_0 = \sum_{i=0}^{n}{x_i}(a_i \in \mathbb{R}; 0 \le i \le n; i \in \mathbb{N})$$}
+$g(x)$为奇次项之和;\\
+$h(x)$ 为偶次项之和.
+
+
+\subsection{搞个一般函数瞧一瞧}
+$$f(x)=ln((x+1)(x-1)^3)$$
+\begin{equation}
+\begin{cases}
+g(x) = \frac{ln((x+1)(x-1)^3)-ln((-x+1)(-x-1)^3)}{2}\\
+h(x) = \frac{ln((x+1)(x-1)^3)+ln((-x+1)(-x-1)^3)}{2}
+\end{cases}
+\end{equation}
+\includegraphics[width=12cm]{fig.png}\\
+黑色的函数图像为$f(x)$, $g(x), h(x)$可据奇偶函数分辨出来. 
+
+\section{后记}
+我就是觉得这个很神奇啊, 拿来一个定义域关于原点对称的函数就能这样弄啊..完成这篇文章的动力在于, 我再也不想看到多个文件散落在我的桌面上了.
+
+
+
+\end{CJK}
+\end{document}
